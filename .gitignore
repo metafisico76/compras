@@ -46,4 +46,4 @@ testem.log
 Thumbs.db
 
 # archivo configuracion
-src/app/config/*.ts
+/src/app/config/*.ts
