@@ -7,7 +7,7 @@ import "firebase/firestore";
 
 
 export const firebaseConfig = {
-	apiKey: "AIzaSyDGg9uaLU_M-FCgmJkZcvwx1YKG6T1qLmw",
+	apiKey: "XXX",
 	authDomain: "comprasapp-5f265.firebaseapp.com",
 	databaseURL: "https://comprasapp-5f265.firebaseio.com",
 	projectId: "comprasapp-5f265",
@@ -28,7 +28,7 @@ if(!firebase.apps.length){
 /*export const config = {
     production: false,
     firebase: {
-	  apiKey: "AIzaSyDGg9uaLU_M-FCgmJkZcvwx1YKG6T1qLmw",
+	  apiKey: "XXX",
 	  authDomain: "comprasapp-5f265.firebaseapp.com",
 	  databaseURL: "https://comprasapp-5f265.firebaseio.com",
 	  projectId: "comprasapp-5f265",
