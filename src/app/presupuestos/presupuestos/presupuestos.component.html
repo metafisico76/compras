@@ -1,0 +1,97 @@
+<h3>Listado de Presupuestos</h3>
+<a class="btn btn-primary float-md-right" routerLink="/addpres">Añadir
+nuevo presupuesto</a>
+<br>
+<!-- <table class="table table-bordered table-striped tabla" style="margin-top: 40px;">
+    <thead>
+        <tr class="filters">
+            <th>Proveedor</th>
+            <th>Fecha</th>
+            <th>Concepto</th>
+            <th>Base</th>
+            <th>IVA</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let presupuesto of presupuestosList">
+            <td>{{ presupuesto.proveedor }}</td>
+            <td>{{ presupuesto.fecha }}</td>
+            <td>{{ presupuesto.concepto }}</td>
+            <td>{{ presupuesto.base }}</td>
+            <td>{{ presupuesto.iva }}</td>
+            <td>{{ presupuesto.total }}</td>
+            <td>
+                <button type="button" class="btn btn-success" routerLink="/editpres/{{ presupuesto.id$ }}">Editar</button>
+                <button class="btn btn-danger" (click)="eliminarPresupuesto(presupuesto.id$)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table> -->
+<mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+       
+        <!-- Proveedor Column -->
+        <ng-container matColumnDef="proveedor">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Proveedor </th>
+        <td mat-cell *matCellDef="let row"> {{row.proveedor}} </td>
+        </ng-container>
+
+        <!-- Concepto Column -->
+        <ng-container matColumnDef="concepto">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Concepto </th>
+        <td mat-cell *matCellDef="let row"> {{row.concepto}} </td>
+        </ng-container>
+
+        <!-- Base Column -->
+        <ng-container matColumnDef="base">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Base </th>
+        <td mat-cell *matCellDef="let row"> {{row.base}} </td>
+        </ng-container>
+
+        <!-- Iva Column -->
+        <ng-container matColumnDef="iva">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Iva </th>
+        <td mat-cell *matCellDef="let row"> {{row.iva}} </td>
+        </ng-container>
+
+        <!-- Total Column -->
+        <ng-container matColumnDef="total">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+            <td mat-cell *matCellDef="let row"> {{row.total}} </td>
+        </ng-container>
+
+        <!-- Tipo Column -->
+        <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo </th>
+            <td mat-cell *matCellDef="let row"> {{row.tipo}} </td>
+        </ng-container>
+
+        <!-- Fecha Column -->
+        <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+            <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let row">
+                <button type="button" class="btn btn-success" routerLink="/editpres/{{ row.id$ }}">Editar</button>
+                <button class="btn btn-danger" (click)="eliminarPresupuesto(row.id$)">Eliminar</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[2, 4, 6, 8]"></mat-paginator>
+</div>
+
